@@ -9,10 +9,10 @@ class TodoServices extends BaseServices{
     function create($title){
         $todo = $this->model;
         $todo->title = $title;
-        $todo->status = FALSE;
+        $todo->status = 0;
         $dateTime = date('Y-m-d H:i:s');
-        $todo->createdAt = $dateTime;
-        $todo->updatedAt = $dateTime;
+        $todo->created_at = $dateTime;
+        $todo->updated_at = $dateTime;
         $todo->save();
         return $this->findOne($todo->id);
     }
@@ -21,7 +21,7 @@ class TodoServices extends BaseServices{
         $todo = $this->model->load(array('id=?',$id));
         $todo->title = $title;
         $todo->status = $status;
-        $todo->updatedAt = date('Y-m-d H:i:s');
+        $todo->updated_at = date('Y-m-d H:i:s');
         $todo->save();
         return $this->findOne($todo->id);
     }
