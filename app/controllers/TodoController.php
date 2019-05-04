@@ -1,6 +1,6 @@
 <?php
 
-class TodoController extends SecureRoute{
+class TodoController extends BaseRoute{
 
     private $todoSvr;
 
