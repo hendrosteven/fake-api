@@ -25,4 +25,14 @@ class TodoServices extends BaseServices{
         $todo->save();
         return $this->findOne($todo->id);
     }
+
+    function search($title){
+        $rows = $this->model->find(
+            array('title like ?',"%$title%"),
+            array()
+        );
+        $result['subset'] = array_map(array($this->model,'cast'),$rows,array());
+        $result['total'] = $this->db->exec("select count(*) as _row from $this->table where title like '%$title%'")[0]['_row'];
+        return $result;
+    }
 }

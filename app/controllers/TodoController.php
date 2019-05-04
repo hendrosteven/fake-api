@@ -68,4 +68,12 @@ class TodoController extends BaseRoute{
         }
     }
 
+    function search(){
+        $title = $this->post['title'];
+        $this->data = [
+            'status'=> true, 
+            'data'=> $this->todoSvr->search($title)
+        ];
+    }
+
 }
