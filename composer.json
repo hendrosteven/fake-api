@@ -1,0 +1,18 @@
+{
+    "require": {
+        "bcosca/fatfree-core": "^3.6",
+        "firebase/php-jwt": "^5.0",
+        "vlucas/valitron": "^1.4",
+        "phpunit/phpunit": "^6",
+        "matthiasmullie/scrapbook": "1.4.6",
+        "nategood/httpful": "*"
+    },
+    "scripts": {
+        "run" : ["php -S localhost:8080 -t ."],
+        "test": ["./vendor/phpunit/phpunit/phpunit app/tests/."]
+    },
+    "config": {
+        "process-timeout":0
+    }
+
+}
