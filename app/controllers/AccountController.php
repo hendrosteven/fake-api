@@ -24,7 +24,7 @@ class AccountController extends BaseRoute
             $account = $this->accSvr->find($email, $password);
             if ($account) {
                 $payload = array(
-                    "id" => $account->id,
+                    "id" => $account['id'],
                     "email" => $account->email,
                     "exp_time" => time() + (60 * 60 * 24 * 7), //1 minggu
                 );
