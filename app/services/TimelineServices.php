@@ -6,6 +6,16 @@ class TimelineServices extends BaseServices{
         parent::__construct('tposting'); //set table name
     }
 
+    function posting($account_id, $photo, $description){
+        $posting = $this->model;
+        $posting->post_date = date('Y-m-d H:i:s');
+        $posting->photo = $photo;
+        $posting->description = $description;
+        $posting->taccount_id = $account_id;
+        $posting->save();
+        return $this->findOne($posting->id);
+    }
+
     function findAll($page, $limit){
         if($page<1){
             $page = 1;

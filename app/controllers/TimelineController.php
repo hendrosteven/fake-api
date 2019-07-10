@@ -18,4 +18,14 @@ class TimelineController extends SecureRoute{
            "payload" => $this->timelineSvr->findAll($page,$limit)
         );
     }
+
+    function posting(){
+        $photo = $this->post['photo'];
+        $description = $this->post['description'];
+        $account = $this->account->id;
+        $this->data = array(
+            "status" => true,
+            "payload" => $this->timelineSvr->posting($account, $photo, $description)
+        );
+    }
 }
