@@ -26,7 +26,7 @@ class AccountController extends BaseRoute
                 $payload = array(
                     "id" => $account->id,
                     "email" => $account->email,
-                    "exp_time" => time() + (60 * 60 * 24), //1 jam
+                    "exp_time" => time() + (60 * 60 * 24 * 7), //1 minggu
                 );
                 $appToken = JWT::encode($payload, $this->f3->get('key'));
 
