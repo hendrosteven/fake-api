@@ -22,7 +22,7 @@ class TimelineController extends SecureRoute{
     function posting(){
         $photo = $this->post['photo'];
         $description = $this->post['description'];
-        $acc = $this->account['id'];
+        $acc = $this->account->id;
         $this->data = array(
             "status" => true,
             "payload" => $this->timelineSvr->posting($acc, $photo, $description)
