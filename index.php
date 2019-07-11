@@ -9,7 +9,7 @@ require 'vendor/autoload.php';
 
 //f3 bootstrap
 $f3 = Base::instance();
-$f3->config('config/config.ini');
+$f3->config('config/config-local.ini');
 $f3->config('config/routes.ini');
 
 //validator config
