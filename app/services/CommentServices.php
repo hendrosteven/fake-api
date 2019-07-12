@@ -2,8 +2,11 @@
 
 class CommentServices extends BaseServices{
 
+    private $notif;
+
     function __construct(){
         parent::__construct('tcomment'); //set table name
+        $this->notif = new PushNotifServices();
     }
 
     function add($postingId, $accountId, $comments){
@@ -17,6 +20,7 @@ class CommentServices extends BaseServices{
         $komentar->account_name = 'select fullname from taccount where tcomment.account_id=taccount.id';
         $result = $komentar->find(array('id=?',$komentar->id));
         $result =  array_map(array($this->model,'cast'),$result,array())[0];
+        $this->notif->sendNotif('There is a new Comments');
         return $result;
     }
 

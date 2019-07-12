@@ -2,8 +2,11 @@
 
 class TimelineServices extends BaseServices{
 
+    private $notif;
+
     function __construct(){
         parent::__construct('tposting'); //set table name
+        $this->notif = new PushNotifServices();
     }
 
     function posting($account_id, $photo, $description){
@@ -13,6 +16,7 @@ class TimelineServices extends BaseServices{
         $posting->description = $description;
         $posting->taccount_id = $account_id;
         $posting->save();
+        $this->notif->sendNotif('There is a new Photo');
         return $this->findOne($posting->id);
     }
 
