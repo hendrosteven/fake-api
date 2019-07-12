@@ -1,6 +1,6 @@
 <?php
 
-class PushNotifServices extends BaseServices{
+class PushNotifServices{
 
     function sendNotif($message){
         $url = "https://onesignal.com/api/v1/notifications";
